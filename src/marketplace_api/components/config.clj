@@ -8,7 +8,7 @@
 
 (def config-map
   {; #TODO :db-uri (or (System/getenv "DB_URI") "datomic:free://localhost:4334/marketplace-api?password=my-pwd")
-   :http-port (Integer/parseInt (or (System/getenv "HTTP_PORT") "8080"))
+   :http-port (Integer/parseInt (or (System/getenv "HTTP_PORT") "3000"))
    :http-host (or (System/getenv "HTTP_HOST") "localhost")})
 
 (defn new-config [input-map] (map->Config {:config (or input-map config-map)}))

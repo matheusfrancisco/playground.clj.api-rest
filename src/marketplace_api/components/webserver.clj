@@ -16,7 +16,7 @@
              [::http/interceptors]
              #(vec (->> % (cons (add-system service))))))
 
-(defn base-service [routes config]
+(defn base-service [routes config ]
   {:env          :dev
    ::http/router :prefix-tree
    ::http/routes #(route/expand-routes (deref routes))
@@ -37,8 +37,8 @@
       http/default-interceptors
       http/dev-interceptors))
 
-; #TODO put storage here
-(defrecord WebServer [config routes]
+
+(defrecord WebServer [config routes storage]
   component/Lifecycle
   (start [this]
     (println
