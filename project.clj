@@ -7,10 +7,12 @@
                  [cheshire "5.8.1"]
                  [com.stuartsierra/component "0.4.0"]
                  [dawcs/flow "1.0.0"]
+                 [clj-http "3.10.1"]
                  [io.pedestal/pedestal.jetty "0.5.5"]
                  [io.pedestal/pedestal.service "0.5.5"]
                  [io.pedestal/pedestal.service-tools "0.5.5"]
                  [prismatic/schema "1.1.10"]]
+  :resource-paths ["configs"]
   :main ^:skip-aot marketplace-api.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
