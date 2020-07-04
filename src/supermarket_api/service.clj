@@ -1,8 +1,8 @@
-(ns marketplace-api.service
+(ns supermarket-api.service
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.body-params :as body-params]
             [ring.util.response :as ring-resp]
-            [marketplace-api.protocols.storage-client :as storage-client]))
+            [supermarket-api.protocols.storage-client :as storage-client]))
 
 (defn home-page
   [request]

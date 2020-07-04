@@ -1,6 +1,6 @@
-(ns marketplace-api.components.storage
+(ns supermarket-api.components.storage
   (:require [com.stuartsierra.component :as component]
-            [marketplace-api.protocols.storage-client :as storage-client]))
+            [supermarket-api.protocols.storage-client :as storage-client]))
 
 (defrecord InMemoryStorage [storage]
   component/Lifecycle

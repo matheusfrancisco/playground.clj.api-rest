@@ -1,4 +1,4 @@
-(ns marketplace-api.components.webserver
+(ns supermarket-api.components.webserver
   (:require [com.stuartsierra.component :as component]
             [io.pedestal.interceptor.helpers :refer [before]]
             [io.pedestal.http.route :as route]

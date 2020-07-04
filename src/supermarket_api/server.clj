@@ -1,4 +1,4 @@
-(ns marketplace-api.server
+(ns supermarket-api.server
   (:require [com.stuartsierra.component :as component]))
 
 (defn start-system! [system-map system]

@@ -1,0 +1,5 @@
+19:33:19.804 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @7811ms to org.eclipse.jetty.util.log.Slf4jLog
+19:33:19.964 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.4.10.v20180503; built: 2018-05-03T15:56:21.710Z; git: daa59876e6f384329b122929e70a80934569428c; jvm 1.8.0_252-b09
+19:33:19.999 [main] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@ab70bf2{/,null,AVAILABLE}
+19:33:20.011 [main] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@195b4f4f{HTTP/1.1,[http/1.1, h2c]}{localhost:3000}
+19:33:20.012 [main] INFO  org.eclipse.jetty.server.Server - Started @8021ms

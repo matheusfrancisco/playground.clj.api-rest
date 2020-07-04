@@ -1,4 +1,4 @@
-(ns marketplace-api.components.config
+(ns supermarket-api.components.config
   (:require [com.stuartsierra.component :as component]))
 
 (defrecord Config [config]

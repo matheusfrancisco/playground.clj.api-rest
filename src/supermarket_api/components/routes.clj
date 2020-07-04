@@ -1,4 +1,4 @@
-(ns marketplace-api.components.routes
+(ns supermarket-api.components.routes
   (:require [com.stuartsierra.component :as component]))
 
 (defrecord Routes [routes]
