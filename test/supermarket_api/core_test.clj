@@ -8,8 +8,16 @@
 
 (def system (atom nil))
 
+
 (def config-map-test
-  {; #TODO :db-uri (or (System/getenv "DB_URI") "datomic:free://localhost:4334/supermarket-api?password=my-pwd") :http-port 8080 :http-host "localhost"}) (defn- build-system-map-test [] (component/system-map :config (config/new-config config-map-test) :storage (storage/new-in-memory)
+  {; #TODO :db-uri (or (System/getenv "DB_URI") "datomic:free://localhost:4334/marketplace-api?password=my-pwd")
+   :http-port 8080
+   :http-host "localhost"})
+
+(defn- build-system-map-test []
+  (component/system-map
+    :config (config/new-config config-map-test)
+    :storage (storage/new-in-memory)
     :routes  (routes/new-routes #'service/routes)
     :http-server (component/using (webserver/new-webserver) [:config :routes :storage])))
 
