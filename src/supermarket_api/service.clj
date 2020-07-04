@@ -4,6 +4,9 @@
             [ring.util.response :as ring-resp]
             [supermarket-api.protocols.storage-client :as storage-client]))
 
+(defn ok [response]
+  (ring-resp/response response))
+
 (defn home-page
   [request]
   (ring-resp/response {:message "Hello World!!"}))
@@ -15,9 +18,15 @@
   [{{storage :storage} :components}]
   (ring-resp/response {:message (get-all-users! storage)}))
 
+(defn handler-create-user
+  [{{conn :storage} :components}]
+  ())
+
+
 (def common-interceptors
   [(body-params/body-params) http/json-body])
 
 (def routes
   #{["/" :get (conj common-interceptors `home-page)]
-    ["/users" :get (conj common-interceptors `get-all-users)]})
+    ["/users" :get (conj common-interceptors `get-all-users)
+     "/users" :post (conj common-interceptors `handler-create-user)]})
