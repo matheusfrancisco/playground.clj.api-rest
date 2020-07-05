@@ -1,9 +1,15 @@
-(ns supermarket-api.core-test (:require [clojure.test :refer :all] [com.stuartsierra.component :as component] [clj-http.client :as client] [supermarket-api.components.config :as config]
+(ns supermarket-api.core-test
+  (:require [clojure.test :refer :all]
+            [com.stuartsierra.component :as component]
+            [clj-http.client :as client]
+            [supermarket-api.components.config :as config]
             [supermarket-api.components.routes :as routes]
             [supermarket-api.service :as service]
             [supermarket-api.components.storage :as storage]
+            [supermarket-api.components.datomic :as dt]
             [supermarket-api.components.webserver :as webserver]
-            [supermarket-api.server :as s]))
+            [supermarket-api.server :as s]
+            [environ.core :refer [env]]))
 
 
 (def system (atom nil))
@@ -17,9 +23,10 @@
 (defn- build-system-map-test []
   (component/system-map
     :config (config/new-config config-map-test)
+    :db (dt/new-datomic (env :db-connection-uri))
     :storage (storage/new-in-memory)
     :routes  (routes/new-routes #'service/routes)
-    :http-server (component/using (webserver/new-webserver) [:config :routes :storage])))
+    :http-server (component/using (webserver/new-webserver) [:config :routes :storage :db])))
 
 
 (defn start-test []
