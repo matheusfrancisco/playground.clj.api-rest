@@ -5,9 +5,11 @@
             [supermarket-api.components.routes :as routes]
             [supermarket-api.components.storage :as storage]
             [supermarket-api.components.webserver :as webserver]
+            [supermarket-api.components.datomic :as dt]
             [supermarket-api.server :as server]
             [supermarket-api.service :as service]
-            [io.pedestal.service-tools.dev :as dev]))
+            [io.pedestal.service-tools.dev :as dev]
+            [environ.core :refer [env]]))
 
 (def system (atom nil))
 
@@ -15,8 +17,9 @@
   (component/system-map
     :config (config/new-config config/config-map)
     :storage (storage/new-in-memory)
+    :db (dt/new-datomic (env :db-connection-uri))
     :routes  (routes/new-routes #'supermarket-api.service/routes)
-    :http-server (component/using (webserver/new-webserver) [:config :routes :storage])))
+    :http-server (component/using (webserver/new-webserver) [:config :routes :storage :db])))
 
 (defn -main
   "The entry-point for 'lein run-dev'"
