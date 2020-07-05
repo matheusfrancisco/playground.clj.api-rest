@@ -1,4 +1,4 @@
-(ns supermarket-api.user
+(ns supermarket-api.dev.user
   (:gen-class)
   (:require [com.stuartsierra.component :as component]
             [supermarket-api.components.config :as config]
@@ -22,7 +22,7 @@
     :routes  (routes/new-routes #'supermarket-api.service/routes)
     :http-server (component/using (webserver/new-webserver) [:config :routes :storage :db])))
 
-(defn main
+(defn start-system
   "The entry-point for 'lein run-dev'"
   [& args]
   (-> (build-system-map)
@@ -30,4 +30,4 @@
 
 (defn run-dev []
   (dev/watch) ;; auto-reload namespaces only in run-dev / repl-start
-  (main))
+  (start-system))
