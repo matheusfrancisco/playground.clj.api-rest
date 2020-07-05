@@ -1,4 +1,4 @@
-# Marketplace Api
+# SuperMarket Api
 
 
 # How to run
@@ -9,7 +9,7 @@ lein run main
 
 
 ```
-http://localhost:8080/
+http://localhost:3000/
 ```
 
 
