@@ -42,8 +42,7 @@
                   :db
                   :conn)
         errors (users/validate-user json-params)]
-
-    (if (nil? errors)
+    (if (nil? (seq errors))
       (let [tx (users/create-user! _conn (u/create-user json-params))]
         (ring-resp/response {:message "sucess" :status 201}))
       (ring-resp/response {:errors errors}))))

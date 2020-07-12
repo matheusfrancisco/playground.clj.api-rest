@@ -74,11 +74,11 @@
 
  (testing "Should return an error if email is blank"
    (let [service (get-service-fn system)]
-     (let  [ user "{\"user/name\": \"Matheus\",
+     (let  [user "{\"user/name\": \"Matheus\",
                \"user/email\": \"\",
                \"user/password\": \"123123\",
                \"user/type\": \"user\"}"
             resp (request-parsed service :post "/users" user)]
-       (is (= (:errors resp) {:error "email is invalid"}))))))
+       (is (= (:errors resp) [{:user/email "invalid"}]))))))
 
 

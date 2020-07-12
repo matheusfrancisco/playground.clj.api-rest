@@ -19,7 +19,7 @@
                                                                   com.google.guava/guava]]
                  [io.pedestal/pedestal.service-tools "0.5.5"]
                  [prismatic/schema "1.1.10"]]
-  ;:resource-paths ["configs"]
+  :resource-paths ["configs"]
   :main ^:skip-aot supermarket-api.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}
