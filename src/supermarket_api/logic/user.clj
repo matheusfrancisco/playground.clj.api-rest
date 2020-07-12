@@ -9,11 +9,8 @@
    :user/password (:user/password bp)
    :user/type (:user/type bp)})
 
-(def user-schema
-  {:user/name [clojure.string/blank?]
-   :user/email [clojure.string/blank?]
-   :user/password [clojure.string/blank?]
-   :user/type [clojure.string/blank?]})
+
+
 
 ;(reduce (fn [acc v]
 ;          (let [bools (-> v first second :is-valid?)
