@@ -23,7 +23,7 @@
   :main ^:skip-aot supermarket-api.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}
-             :dev  {:repl-options         {:timeout 220000}
+             :dev  {:repl-options         {:timeout 320000}
                     :env          {:db-connection-uri "datomic:mem://supermarket-dev"
                                    :http-server-port 3000}
                     :source-paths ["src/supermarket_api/dev"]}
@@ -32,7 +32,7 @@
   :uberjar-name "api.jar"
   :test-selectors {:default (complement :integration)
                    :integration :integration}
-  ;:repl-options {:init-ns superplace-api.core}
+  :repl-options {:init-ns superplace-api.core}
   :repositories [["my.datomic.com" {:url      "https://my.datomic.com/repo"
                                     :username [:env/my_datomic_username]
                                     :password [:env/my_datomic_password]}]])
