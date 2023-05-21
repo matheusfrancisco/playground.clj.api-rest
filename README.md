@@ -1,4 +1,4 @@
-# SuperMarket Api
+#  Api in clojure
 
 
 # How to run
